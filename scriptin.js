@@ -1,3 +1,16 @@
+let bookTitle = document.querySelector(`#titleBk`).value ;
+let bookAuthor = document.querySelector(`authorBk`).value;
+let bookPages = document.querySelector(`#pageNumber`).value;
+let bookStatus;
+
+if(document.getElementById(`read`).checked == true){
+    return bookStatus = document.querySelector(`#read`).value;
+} else if(document.getElementById(`ntread`).checked == true){
+    return bookStatus =  document.querySelector(`#ntread`).value;
+}
+
+
+
 let myLibrary=[ ]
 
 
@@ -15,5 +28,9 @@ function Book(title, author,pages,read){
 
 
 function addBookToLibrary(){
+
+    let book = new Book(bookTitle,bookAuthor,bookPages,bookStatus);
+
+    return myLibrary.push(book);
 
 }

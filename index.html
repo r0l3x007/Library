@@ -9,6 +9,25 @@
 </head>
 <body>
     <header>Library of Wonders By a random Dude</header>
-    
+    <div class="addBook">
+        <form>
+        <label for="titleBk"> Title: </label>
+        <input type="text" id="titleBk" name="Title" placeholder="Enter the title of the book" />
+        <label for="authorBk">Author: </label>
+        <input type="text" id="authorBk"  name="Author" placeholder="Enter the name of the author" />
+        <label for="pageNumber">Number of pages:</label>
+        <input type="text" id="pageNumber" name="Pages" placeholder="Enter the number of pages"/>
+        <div class="rdBtn">
+            <input type="radio" id="read" name="status" value="read" />
+            <label for="read">Read</label>
+        </div>
+        <div class="ntrdBtn">
+            <input type="radio" id="ntread" name="status" value="notread" />
+            <label for="ntread">Not read</label>
+        </div>
+        <button type="submit">Send Information</button>
+        </form>
+    </div>
+    <div class="bookDisp"></div>
 </body>
 </html>
