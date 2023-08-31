@@ -1,17 +1,28 @@
-let bookTitle = document.querySelector(`#titleBk`).value ;
-let bookAuthor = document.querySelector(`authorBk`).value;
-let bookPages = document.querySelector(`#pageNumber`).value;
+let bookTitle = document.querySelector(`#titleBk`);
+let bookAuthor = document.querySelector(`authorBk`);
+let bookPages = document.querySelector(`#pageNumber`);
 let bookStatus;
+let sbmitBtn = document.querySelector(`#submitBtn`);
+const cardCont =  document.querySelector(`#bookDisp`);
 
-if(document.getElementById(`read`).checked == true){
+/*if(document.getElementById(`read`).checked == true){
     return bookStatus = document.querySelector(`#read`).value;
 } else if(document.getElementById(`ntread`).checked == true){
     return bookStatus =  document.querySelector(`#ntread`).value;
-}
+}*/
 
 
+//sbmitBtn.addEventListener(`click`,addBookToLibrary);
 
-let myLibrary=[ ]
+
+let myLibrary=[{title: `human`,
+                author: `JJ Simons`,
+                pages: `169`,
+                read: false },
+                {title: `humaasdn`,
+                author: `JJ Siasdsadmons`,
+                pages: `16944`,
+                read: true }]
 
 
 
@@ -31,6 +42,33 @@ function addBookToLibrary(){
 
     let book = new Book(bookTitle,bookAuthor,bookPages,bookStatus);
 
-    return myLibrary.push(book);
-
+    myLibrary.push(book);
 }
+
+let bookHldr1 = document.querySelector(`bookHolder1`);
+
+
+
+function checkstuff(){
+    if(number > 0){
+        return drawCard(number);
+    }
+}
+
+function dispBook(){
+    for(let i = 0; i < myLibrary.length; i++){
+        let cardBox = document.createElement(`div`);
+        cardBox.classList.add(`bookHolder`);
+        cardBox.setAttribute(`id`,`bookHolder`);
+        cardBox.style.width =`200px`;
+        cardBox.style.height = `200px`;
+        cardBox.style.backgroundColor = `lightblue`
+        cardCont.appendChild(cardBox);
+        let txtObj = JSON.stringify(myLibrary[i]);
+        cardBox.textContent = txtObj;
+    }
+}
+
+
+
+

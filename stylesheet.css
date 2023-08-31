@@ -14,9 +14,3 @@ header{
     display: grid;
     gap: 20px;
 }
-
-.bookHolder{
-    height:200px;
-    width: 200px;
-    background-color: aqua;
-}
