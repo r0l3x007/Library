@@ -12,5 +12,38 @@ header{
 
 .bookDisp{
     display: grid;
-    gap: 20px;
+    background-color: aqua;
+    gap: 1rem;
+    grid-template-columns: repeat(4, minmax(150px, 200px));
+}
+
+.container{
+    display: grid;
+    position: relative;
+    gap:1rem;
+    background-color: blanchedalmond;
+    grid-template-columns: 2fr 5fr;
+}
+
+.addBook{
+    background-color: aqua;
+}
+
+#formCont{
+    
+}
+
+.row{
+    display: flex;
+}
+
+input{
+    
+}
+
+.inputGroup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px 5px;
 }

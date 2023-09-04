@@ -9,26 +9,56 @@
 </head>
 <body>
     <header>Library of Wonders By a random Dude</header>
+    <div class="container">
     <div class="addBook">
-        <form>
-        <label for="titleBk"> Title: </label>
-        <input type="text" id="titleBk" name="Title" placeholder="Enter the title of the book" />
-        <label for="authorBk">Author: </label>
-        <input type="text" id="authorBk"  name="Author" placeholder="Enter the name of the author" />
-        <label for="pageNumber">Number of pages:</label>
-        <input type="text" id="pageNumber" name="Pages" placeholder="Enter the number of pages"/>
-        <div class="rdBtn">
-            <input type="radio" id="read" name="status" value="read" />
-            <label for="read">Read</label>
+        <form id="formCont">
+            <div class="row">
+                <div class="inputGroup">
+                    <label for="titleBk"> Title: </label>
+                    <input type="text" id="titleBk" name="Title" placeholder="Enter the title of the book" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="inputGroup">
+                         <label for="authorBk">Author: </label>
+                         <input type="text" id="authorBk"  name="Author" placeholder="Enter the name of the author" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="inputGroup">
+                    <label for="pageNumber">Number of pages:</label>
+                    <input type="text" id="pageNumber" name="Pages" placeholder="Enter the number of pages"/>
+                </div>
+            </div>
+
+        <div class="row">
+            <div class="inputGroup">
+                <div class="rdBtn">
+                    <input type="radio" id="read" name="status" value="Read" />
+                    <label for="read">Read</label>
+                </div>
+                <div class="ntrdBtn">
+                    <input type="radio" id="ntread" name="status" value="Not read" />
+                    <label for="ntread">Not read</label>
+                </div>
+                <div class="inProg">
+                    <input type="radio" id="inprgs" name="status" value="In Progress" />
+                    <label for="inprgs">In Progress</label>
+                </div>
+            </div>
         </div>
-        <div class="ntrdBtn">
-            <input type="radio" id="ntread" name="status" value="notread" />
-            <label for="ntread">Not read</label>
+
+        <div class="row">
+            <div class="inputGroup">
+                <button type="submit" id="submitBtn">Send Information</button>
+            </div>
         </div>
-        <button type="submit" id="submitBtn">Send Information</button>
         </form>
     </div>
     <div id="bookDisp">
+    </div>
     </div>
     <script src="scriptin.js"></script>
 </body>

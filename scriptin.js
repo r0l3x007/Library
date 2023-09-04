@@ -1,46 +1,72 @@
 let bookTitle = document.querySelector(`#titleBk`);
-let bookAuthor = document.querySelector(`authorBk`);
+let bookAuthor = document.querySelector(`#authorBk`);
 let bookPages = document.querySelector(`#pageNumber`);
-let bookStatus;
+let bookStatus = document.querySelectorAll(`input[type="radio"]`);
 let sbmitBtn = document.querySelector(`#submitBtn`);
 const cardCont =  document.querySelector(`#bookDisp`);
 
-/*if(document.getElementById(`read`).checked == true){
-    return bookStatus = document.querySelector(`#read`).value;
-} else if(document.getElementById(`ntread`).checked == true){
-    return bookStatus =  document.querySelector(`#ntread`).value;
-}*/
+
+    let inTitle;
+    let inAuthor;
+    let inPages;
+    let inStatus;
 
 
-//sbmitBtn.addEventListener(`click`,addBookToLibrary);
 
+sbmitBtn.addEventListener(`click`, function(event){
+    event.preventDefault();
+    for(let bookStat of bookStatus){
+        if(bookStat.checked){
+            inStatus = bookStat.value;
+        }
+    }
+    addBookToLibrary();
+    dispBook();
+});
 
 let myLibrary=[{title: `human`,
                 author: `JJ Simons`,
                 pages: `169`,
-                read: false },
+                status: `read` },
                 {title: `humaasdn`,
                 author: `JJ Siasdsadmons`,
                 pages: `16944`,
-                read: true }]
+                status: `In progress` }]
 
 
 
-function Book(title, author,pages,read){
+function Book(title, author,pages,status){
     this.title =  title;
     this.author = author;
     this.pages = pages;
-    this.read =  read;
+    this.status =  status;
 
-    this.info = function(){
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read}  read yet.`;
-    }
 }
 
+Book.prototype.toString = function(){
+    return `The title of the book is: ` + this.title + ` Written by: ` + this.author + ` Number of pages ` + this.pages + ` Current Status ` + this.status; 
+}
 
-function addBookToLibrary(){
+bookTitle.addEventListener(`input`, function(){
+    inTitle = bookTitle.value;
+} );
 
-    let book = new Book(bookTitle,bookAuthor,bookPages,bookStatus);
+bookAuthor.addEventListener(`input`, function(){
+    inAuthor = bookAuthor.value;
+});
+
+bookPages.addEventListener(`input`, function(){
+    inPages =  bookPages.value;
+});
+
+
+
+
+function addBookToLibrary(bookTitle,bookAuthor,bookPages,bookStatus){
+
+    
+
+    let book = new Book(inTitle,inAuthor,inPages,inStatus);
 
     myLibrary.push(book);
 }
@@ -56,17 +82,17 @@ function checkstuff(){
 }
 
 function dispBook(){
-    for(let i = 0; i < myLibrary.length; i++){
+    //for(let i = 0; i < myLibrary.length; i++){
         let cardBox = document.createElement(`div`);
         cardBox.classList.add(`bookHolder`);
         cardBox.setAttribute(`id`,`bookHolder`);
-        cardBox.style.width =`200px`;
-        cardBox.style.height = `200px`;
+        //cardBox.style.width =`200px`;
+        //cardBox.style.height = `200px`;
         cardBox.style.backgroundColor = `lightblue`
         cardCont.appendChild(cardBox);
-        let txtObj = JSON.stringify(myLibrary[i]);
+        let txtObj = myLibrary[myLibrary.length-1].toString();
         cardBox.textContent = txtObj;
-    }
+    
 }
 
 
