@@ -3,7 +3,7 @@ let bookAuthor = document.querySelector(`#authorBk`);
 let bookPages = document.querySelector(`#pageNumber`);
 let bookStatus = document.querySelectorAll(`input[type="radio"]`);
 let sbmitBtn = document.querySelector(`#submitBtn`);
-const cardCont =  document.querySelector(`#bookDisp`);
+let cardCont =  document.querySelector(`#bookDisp`);
 
 
     let inTitle;
@@ -24,14 +24,14 @@ sbmitBtn.addEventListener(`click`, function(event){
     dispBook();
 });
 
-let myLibrary=[{title: `human`,
+let myLibrary=[/*{title: `human`,
                 author: `JJ Simons`,
                 pages: `169`,
                 status: `read` },
                 {title: `humaasdn`,
                 author: `JJ Siasdsadmons`,
                 pages: `16944`,
-                status: `In progress` }]
+status: `In progress` }*/]
 
 
 
@@ -84,15 +84,23 @@ function checkstuff(){
 function dispBook(){
     //for(let i = 0; i < myLibrary.length; i++){
         let cardBox = document.createElement(`div`);
+        let dltBtn = document.createElement(`button`);
         cardBox.classList.add(`bookHolder`);
-        cardBox.setAttribute(`id`,`bookHolder`);
-        //cardBox.style.width =`200px`;
-        //cardBox.style.height = `200px`;
-        cardBox.style.backgroundColor = `lightblue`
-        cardCont.appendChild(cardBox);
         let txtObj = myLibrary[myLibrary.length-1].toString();
         cardBox.textContent = txtObj;
-    
+        dltBtn.textContent =`Delete`;
+        dltBtn.classList.add(`btn`);
+        dltBtn.setAttribute(`id`,myLibrary.length-1);
+        dltBtn.style.width = `50px`;
+        dltBtn.style.height = `50px`;
+        cardBox.appendChild(dltBtn);
+        cardBox.setAttribute(`id`, myLibrary.length-1);
+        cardBox.style.width =`200px`;
+        cardBox.style.height = `200px`;
+        cardBox.style.backgroundColor = `lightblue`;
+        cardCont.appendChild(cardBox);
+       
+           
 }
 
 

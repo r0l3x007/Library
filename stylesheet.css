@@ -10,11 +10,13 @@ header{
     background-color: aquamarine;
 }
 
-.bookDisp{
+#bookDisp{
     display: grid;
-    background-color: aqua;
+    background-color: rgb(255, 0, 76);
     gap: 1rem;
-    grid-template-columns: repeat(4, minmax(150px, 200px));
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(5, minmax(150px, 200px));
 }
 
 .container{
@@ -29,8 +31,8 @@ header{
     background-color: aqua;
 }
 
-#formCont{
-    
+.bookHolder{
+    border-radius: 20px;
 }
 
 .row{
