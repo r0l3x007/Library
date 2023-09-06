@@ -11,7 +11,14 @@ let cardCont =  document.querySelector(`#bookDisp`);
     let inPages;
     let inStatus;
 
-
+    let myLibrary=[/*{title: `human`,
+    author: `JJ Simons`,
+    pages: `169`,
+    status: `read` },
+    {title: `humaasdn`,
+    author: `JJ Siasdsadmons`,
+    pages: `16944`,
+status: `In progress` }*/]
 
 sbmitBtn.addEventListener(`click`, function(event){
     event.preventDefault();
@@ -22,16 +29,29 @@ sbmitBtn.addEventListener(`click`, function(event){
     }
     addBookToLibrary();
     dispBook();
+    for(let i = 0; i < myLibrary.length; i++){
+    if(myLibrary.length > 0 && myLibrary[i] != undefined){
+        let dltBkbtn =  document.getElementsByClassName(`btn`);
+        for(let b of dltBkbtn){
+            b.addEventListener(`click`,function(){
+                let index = this.id;
+                deleteBook(index);
+            });
+        }
+    }
+    }
+    
 });
 
-let myLibrary=[/*{title: `human`,
-                author: `JJ Simons`,
-                pages: `169`,
-                status: `read` },
-                {title: `humaasdn`,
-                author: `JJ Siasdsadmons`,
-                pages: `16944`,
-status: `In progress` }*/]
+/*if(myLibrary.length > 0){
+
+    let dltBkbtn =  document.getElementsByTagName(`button`);
+    for(let b of dltBkbtn){
+        b.addEventListener(`click`,deleteBook);
+    }
+}*/
+
+
 
 
 
@@ -94,15 +114,28 @@ function dispBook(){
         dltBtn.style.width = `50px`;
         dltBtn.style.height = `50px`;
         cardBox.appendChild(dltBtn);
-        cardBox.setAttribute(`id`, myLibrary.length-1);
+        cardBox.setAttribute(`id`,`box${myLibrary.length-1}`);
         cardBox.style.width =`200px`;
         cardBox.style.height = `200px`;
         cardBox.style.backgroundColor = `lightblue`;
         cardCont.appendChild(cardBox);
-       
-           
 }
 
+/*if(myLibrary.length > 0){
 
+    let dltBkbtn =  document.getElementsByTagName(`button`);
+    for(let b of dltBkbtn){
+        b.addEventListener(`click`,deleteBook);
+    }
+}*/
 
+function deleteBook(index){
+        //let bookLoc = parseInt(index);
+        //myLibrary.splice(bookLoc,bookLoc);
+        let dispcont = document.getElementById(`box${index}`);
+        //cardCont.removeChild(dispcont);
+        dispcont.remove();
+        delete myLibrary[index];
+        
+}
 
