@@ -16,7 +16,7 @@ let cardCont =  document.querySelector(`#bookDisp`);
 
 
     //Submit button on click will add the book to the array while adding the buttons 
-sbmitBtn.addEventListener(`click`, function(event){
+sbmitBtn.addEventListener(`click`,function(event){
     event.preventDefault();
     for(let bookStat of bookStatus){
         if(bookStat.checked){
@@ -25,35 +25,25 @@ sbmitBtn.addEventListener(`click`, function(event){
     }
     addBookToLibrary();
     dispBook();
-    for(let i = 0; i < myLibrary.length; i++){
-    if(myLibrary.length > 0 && myLibrary[i] != undefined){
-        let dltBkbtn =  document.getElementsByClassName(`btn`);
-        for(let b of dltBkbtn){
-            b.addEventListener(`click`,function(){
-                let index = this.id;
-                deleteBook(index);
-            });
-        }
-        
-    }
-    }
-    let sttButton = [...document.getElementsByClassName(`tgBtn`)];
-   /* for(let s of sttButton ){
-        s.addEventListener(`click`,function(){
-            let index = this.id;
-            changeStatus(index);
-        })
-    }*/
-    sttButton.forEach(element => {
-        element.addEventListener(`click`,function(){
-            let index = this.id;
-            changeStatus(index);
-        })
-        
-    });
-    
 });
 
+
+    //Handles the eventlistener on the parent container as in the previous code the eventlisteners bubbledup
+
+cardCont.addEventListener(`click`, function(event){
+    let clickedElement = event.target;
+    let bookContainer = clickedElement.closest(`.bookHolder`);
+
+    if(bookContainer){
+        if(clickedElement.classList.contains(`btn`)){
+            let index = clickedElement.id;
+            deleteBook(index);
+        }else if(clickedElement.classList.contains(`tgBtn`)){
+            let index = clickedElement.id;
+            changeStatus(index);
+        }
+    }
+})
 
 
 
@@ -84,7 +74,7 @@ bookPages.addEventListener(`input`, function(){
 
 //creates a new book objects add adds it to the array
 
-function addBookToLibrary(bookTitle,bookAuthor,bookPages,bookStatus){
+function addBookToLibrary(){
 
     
 
@@ -142,6 +132,8 @@ function deleteBook(index){
         }
         
 }
+
+//changes the status of the book object from read to not read
 
 function changeStatus(index){
     let statusUp = myLibrary[index].status;
