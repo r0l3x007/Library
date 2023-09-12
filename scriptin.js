@@ -23,8 +23,14 @@ sbmitBtn.addEventListener(`click`,function(event){
             inStatus = bookStat.value;
         }
     }
-    addBookToLibrary();
-    dispBook();
+    if(inTitle == undefined || inAuthor == undefined || inPages == undefined || inStatus == undefined
+        || inTitle == ` ` || inAuthor == ` ` || inPages == ` `){
+        alert(`Please complete the fields.`);
+    }else{
+        addBookToLibrary();
+        dispBook();
+    }
+    
 });
 
 
@@ -105,16 +111,16 @@ function dispBook(){
         txtHolder.setAttribute(`id`,`txt${myLibrary.length-1}`)
         dltBtn.setAttribute(`id`,myLibrary.length-1);
         toggleBtn.setAttribute(`id`,myLibrary.length-1);
-        toggleBtn.style.width = `50px`;
-        toggleBtn.style.height =`50px`;
-        dltBtn.style.width = `50px`;
-        dltBtn.style.height = `50px`;
+        toggleBtn.style.width = `100px`;
+        toggleBtn.style.height =`55px`;
+        dltBtn.style.width = `100px`;
+        dltBtn.style.height = `55px`;
         cardBox.appendChild(txtHolder);
         cardBox.appendChild(toggleBtn);
         cardBox.appendChild(dltBtn);
         cardBox.setAttribute(`id`,`box${myLibrary.length-1}`);
-        cardBox.style.width =`200px`;
-        cardBox.style.height = `200px`;
+        cardBox.style.width =`300px`;
+        cardBox.style.height = `300px`;
         cardBox.style.backgroundColor = `lightblue`;
         cardCont.appendChild(cardBox);
 }

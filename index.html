@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="inputGroup">
                     <label for="titleBk"> Title: </label>
-                    <input type="text" id="titleBk" name="Title" placeholder="Enter the title of the book" />
+                    <input type="text" id="titleBk" name="Title" minlength="3" pattern="[A-Za-z]" required  placeholder="Enter the title of the book" />
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
             <div class="row">
                 <div class="inputGroup">
                     <label for="pageNumber">Number of pages:</label>
-                    <input type="text" id="pageNumber" name="Pages" placeholder="Enter the number of pages"/>
+                    <input type="number" id="pageNumber" name="Pages" placeholder="Enter the number of pages"/>
                 </div>
             </div>
 
@@ -48,7 +48,7 @@
 
         <div class="row">
             <div class="inputGroup">
-                <button type="submit" id="submitBtn">Send Information</button>
+                <button type="submit" id="submitBtn">Add book</button>
             </div>
         </div>
         </form>

@@ -3,49 +3,121 @@ body{
     font-family: sans-serif;
     padding: 0;
     margin: 0;
+    background-color: rgb(240, 241, 241);
 }
 
 header{
-    height: 150px;
-    background-color: aquamarine;
+    height: 100px;
+    background-color: rgb(240, 241, 241);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-style: italic;
+    font-weight: bolder;
 }
 
 #bookDisp{
     display: grid;
-    background-color: rgb(255, 0, 76);
     gap: 1rem;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(5, minmax(150px, 200px));
+    grid-template-columns: repeat(5, minmax(300px, 400px));
 }
 
 .container{
     display: grid;
-    position: relative;
     gap:1rem;
-    background-color: blanchedalmond;
-    grid-template-columns: 2fr 5fr;
+    grid-template-columns: 1fr 5fr;
 }
 
 .addBook{
-    background-color: aqua;
+    background-color: rgb(255, 123, 0);
+    align-self: start;
+    position: sticky;
+    box-shadow:0px 3px 10px rgba(128, 128, 128, 0.699);
+    top: 0;
+    border-radius: 20px;
+    margin: 1rem;
 }
 
 .bookHolder{
     border-radius: 20px;
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr ; 
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 3px 10px rgba(116, 0, 248, 0.699);
+}
+
+.textHolder{
+    text-align: center;
+    grid-row: 1/2;
+    grid-column: 1/4;
+}
+
+.btn{
+    grid-row: 2/3;
+    grid-column: 1/2;
+    border-radius: 20px;
+    border: 0px;
+    margin: 1rem;
+}
+
+.tgBtn{
+    grid-row: 2/3;
+    grid-column: 3/4;
+    border-radius: 20px;
+    border: 0px;
+    margin: 1rem;
+}   
+
+.btn:hover, .tgBtn:hover{
+    border: 2px solid rgb(142, 204, 255);
+}
+
+.btn:active, .tgBtn:active{
+    background-color: aqua;
 }
 
 .row{
     display: flex;
+    justify-content: center;
 }
 
-input{
-    
-}
 
 .inputGroup{
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 10px 5px;
+    width: 70%;
+}
+
+input[type="text"],
+input[type="number"]{
+    border:1px lightgray;
+    border-radius: 10px;
+    height: 35px;
+}
+
+input:hover{
+    border: 2px solid  rgb(142, 204, 255);
+}
+
+#submitBtn{
+    width:70%;
+    height: 70px;
+    border-radius: 20px;
+    border: 0px;
+}
+
+#submitBtn:hover{
+    border: 2px solid rgb(142, 204, 255);
+}
+
+#submitBtn:active{
+    background-color: aqua;
 }
