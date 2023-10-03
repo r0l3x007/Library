@@ -51,15 +51,22 @@ cardCont.addEventListener(`click`, function(event){
     }
 })
 
+class Book{
+    constructor(title,author,pages,status){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.status =  status;
+    }
+}
 
-
-function Book(title, author,pages,status){
+/*function Book(title, author,pages,status){
     this.title =  title;
     this.author = author;
     this.pages = pages;
     this.status =  status;
 
-}
+}*/
 //changing the default toString value so the information is displayed correctly
 Book.prototype.toString = function(){
     return `The title of the book is: ` + this.title + ` Written by: ` + this.author + ` Number of pages ` + this.pages + ` Current Status ` + this.status; 
@@ -81,9 +88,7 @@ bookPages.addEventListener(`input`, function(){
 //creates a new book objects add adds it to the array
 
 function addBookToLibrary(){
-
     
-
     let book = new Book(inTitle,inAuthor,inPages,inStatus);
 
     myLibrary.push(book);
